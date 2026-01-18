@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - STRIPE_API_KEY=${STRIPE_API_KEY}
+      # Default to a local SQLite DB inside the container if DATABASE_URL is unset
+      - DATABASE_URL=${DATABASE_URL:-sqlite:////app/data/clipforge.db}
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./:/app
+      - ./outputs:/app/outputs
+      - db_data:/app/data
+    entrypoint: ["/app/docker-entrypoint.sh"]
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  worker:
+    build: .
+    depends_on:
+      - redis
+      - web
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      # Use same sqlite fallback as web when DATABASE_URL is not provided
+      - DATABASE_URL=${DATABASE_URL:-sqlite:////app/data/clipforge.db}
+    volumes:
+      - ./:/app
+      - ./outputs:/app/outputs
+      - db_data:/app/data
+    entrypoint: ["/app/docker-entrypoint.sh"]
+    command: ["worker"]
+    restart: unless-stopped
+
+volumes:
+  db_data:
+    driver: local

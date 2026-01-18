@@ -1,0 +1,1 @@
+Keep migration scripts in this directory. Use `alembic revision --autogenerate -m "msg"` to create migrations.

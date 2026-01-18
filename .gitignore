@@ -1,0 +1,9 @@
+﻿.venv
+__pycache__
+outputs
+training
+.github/workflows
+client_secrets.json
+clipforge.db
+client_secrets.json
+clipforge.db

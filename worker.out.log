@@ -1,0 +1,6 @@
+21:19:10 Worker 8f9573f22e054185b9b90e971225f8fa: started with PID 3284, version 2.6.1
+21:19:10 Worker 8f9573f22e054185b9b90e971225f8fa: subscribing to channel rq:pubsub:8f9573f22e054185b9b90e971225f8fa
+21:19:10 *** Listening on default...
+21:19:10 Worker 8f9573f22e054185b9b90e971225f8fa: cleaning registries for queue: default
+21:19:10 default: projects._render_and_update('s2', 1) (1142cc16-0617-42cd-a21d-c2193c71de08)
+21:19:10 Worker 8f9573f22e054185b9b90e971225f8fa: unsubscribing from channel rq:pubsub:8f9573f22e054185b9b90e971225f8fa

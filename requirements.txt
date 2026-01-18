@@ -1,0 +1,38 @@
+fastapi>=0.95.0
+uvicorn[standard]>=0.22.0
+sqlalchemy>=2.0.0
+alembic>=1.11.0
+jinja2>=3.1.0
+requests>=2.30.0
+python-dotenv>=1.0.0
+redis>=4.5.0
+rq>=1.14.0
+passlib[bcrypt]>=1.7.4
+python-jose>=3.3.0
+Pillow>=10.0.0
+whisperx
+# whisperx  # heavy ML dependency - install only if you need transcription
+# librosa>=0.10.0  # optional audio feature extraction
+pytest>=7.0.0
+httpx>=0.24.0
+openai-whisper
+google-api-python-client
+google-auth
+google-auth-oauthlib
+isodate
+# numpy, scipy, torch, transformers, datasets are heavy - install as needed
+# numpy
+# scipy
+# Pillow
+# gTTS
+# openai
+# stripe
+# torch
+# transformers
+# datasets
+# redis
+# rq
+# psycopg2-binary
+# passlib[bcrypt]
+# python-jose
+# alembic

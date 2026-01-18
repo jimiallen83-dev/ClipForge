@@ -1,0 +1,4 @@
+.clip { border: 1px solid #ccc; padding: 8px; margin: 8px; display: inline-block; width: 220px; vertical-align: top }
+.clip .thumb { height: 120px; background: #eee; display:flex; align-items:center; justify-content:center }
+.clip .actions { margin-top:8px }
+.clip button { margin-right:6px }

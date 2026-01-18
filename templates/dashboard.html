@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Project Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Project: {{ project.name }}</h1>
+    {% if analytics %}
+    <div style="margin-bottom:12px">Subscription & Analytics: Clips created: {{ analytics.clips_created }} — Watch time: {{ analytics.watch_time_seconds }}s</div>
+    {% endif %}
+    <div id="clips">
+      {% for c in clips %}
+      <div class="clip" data-clipid="{{ c.clip_id }}">
+        <div class="thumb">Score: {{ c.score }} — Emotion: {{ c.emotion }}</div>
+        <div class="meta">Start: {{ c.start }} — Duration: {{ c.duration }}</div>
+        <div class="actions">
+          <button class="approve">Approve</button>
+          <button class="reject">Reject</button>
+          <button class="render">Render</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div style="margin-top:20px">
+      <button id="assemble">Assemble Longform (12 min)</button>
+      <a id="download" href="#" style="margin-left:12px; display:none">Download longform</a>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+  </html>
